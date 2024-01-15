@@ -57,7 +57,7 @@ const columns = [
     title: "Description",
     dataIndex: "description",
     defaultSortOrder: "descend",
-    sorter: (a, b) => a.localeCompare(b),
+    sorter: (a, b) => a.description.localeCompare(b.description),
   },
 ];
 
