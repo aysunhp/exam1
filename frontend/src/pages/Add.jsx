@@ -34,15 +34,16 @@ const onChange = (pagination, filters, sorter, extra) => {
 
 
 const SignupSchema = Yup.object().shape({
-  firstName: Yup.string()
+  name: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  lastName: Yup.string()
+  rate: Yup.string()
     .min(2, 'Too Short!')
     .max(50, 'Too Long!')
     .required('Required'),
-  email: Yup.string().email('Invalid email').required('Required'),
+  description: Yup.string() .min(2, 'Too Short!')
+  .max(50, 'Too Long!').required('Required'),
 });
 
 
@@ -69,24 +70,37 @@ const Add = () => {
          description:"",
          image:"",
        }}
-       validationSchema={SignupSchema}
+      //  validationSchema={SignupSchema}
        onSubmit={values => {
-        dispatch(postData(values))
+        // dispatch(postData(values))
          console.log(values);
        }}
      >
        {({ errors, touched,handleSubmit }) => (
-         <Form>
-           <Field name="firstName" />
-           {errors.firstName && touched.firstName ? (
-             <div>{errors.firstName}</div>
+         <Form onSubmit={handleSubmit}>
+           <Field name="name" />
+           {errors.name && touched.name ? (
+             <div>{errors.name}</div>
            ) : null}
-           <Field name="lastName" />
-           {errors.lastName && touched.lastName ? (
-             <div>{errors.lastName}</div>
+           <br />
+           <Field name="rate" />
+           {errors.rate && touched.rate ? (
+             <div>{errors.rate}</div>
            ) : null}
-           <Field name="email" type="email" />
-           {errors.email && touched.email ? <div>{errors.email}</div> : null}
+           <br />
+           <Field name="favourite" />
+           {errors.favourite && touched.favourite ? (
+             <div>{errors.favourite}</div>
+           ) : null}
+            <br />
+            <Field name="description" />
+           {errors.description && touched.description ? (
+             <div>{errors.description}</div>
+           ) : null}
+            <br />
+           <Field name="image" type="image" />
+           {errors.image && touched.image ? <div>{errors.image}</div> : null}
+           <br />
            <button type="submit">Submit</button>
          </Form>
        )}
