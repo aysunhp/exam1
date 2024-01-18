@@ -20,7 +20,7 @@ const Detail = () => {
     const {id}=useParams()
     const dispatch = useDispatch();
     const data = useSelector((state) => state.product.data);
-  
+
     useEffect(() => {
       console.log("salam");
       dispatch(fetchData());

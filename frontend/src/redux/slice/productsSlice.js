@@ -25,7 +25,15 @@ export const postData = createAsyncThunk("products/postData", async (item) => {
     .then((res) => {
       return res.data;
     });
-  console.log(response);
+  return response;
+});
+
+export const deleteData = createAsyncThunk("products/deleteData", async (id) => {
+  const response = await axios
+    .delete(`http://localhost:8000/products/`+id)
+    .then((res) => {
+      return res.data;
+    });
   return response;
 });
 
@@ -62,10 +70,17 @@ export const productSlice = createSlice({
       let found = [...state.basket].findIndex(
         (item) => item._id == action.payload._id
       );
-
-      state.basket = current(state.basket).map((item, index) =>
-        index === found ? { ...item, quantity: item.quantity - 1 } : item
+      let foundElem = [...state.basket].find(
+        (item) => item._id == action.payload._id
       );
+if(foundElem==1){
+  foundElem.quantity=1;
+}else{
+  state.basket = current(state.basket).map((item, index) =>
+  index === found ? { ...item, quantity: item.quantity - 1 } : item
+);
+}
+      
     },
     deleteBasket: (state, action) => {
       state.basket = current(state.basket).filter(
@@ -115,10 +130,26 @@ export const productSlice = createSlice({
       .addCase(postData.fulfilled, (state, action) => {
         state.status = "succeeded";
         console.log("succed");
-        state.data = [...current(state.data), current(action.payload)];
+        state.data = [...current(state.data), action.payload];
         console.log(state.data);
       })
       .addCase(postData.rejected, (state, action) => {
+        state.status = "failed";
+        console.log("failed");
+        state.error = action.error.message;
+      });
+
+      builder
+      .addCase(deleteData.pending, (state) => {
+        state.status = "loading";
+        console.log("loading");
+      })
+      .addCase(deleteData.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        console.log("succed");
+        state.data = state.data.filter(item=>item._id!=action.payload._id)
+      })
+      .addCase(deleteData.rejected, (state, action) => {
         state.status = "failed";
         console.log("failed");
         state.error = action.error.message;

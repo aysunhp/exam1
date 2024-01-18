@@ -8,12 +8,13 @@ const getAllProducts = async (req, res) => {
 
 const deleteProduct = async (req, res) => {
   const deleted = await Product.findByIdAndDelete({ _id: req.params.id });
+  res.send(deleted)
 };
 
 const postProduct = async (req, res) => {
   const newProd = await Product(req.body);
-  console.log(newProd);
-  newProd.save();
+ await newProd.save();
+ res.send(newProd)
 };
 
 module.exports = { getAllProducts, deleteProduct, postProduct };

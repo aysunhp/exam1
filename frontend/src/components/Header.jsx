@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import { FaFacebook } from "react-icons/fa";
 import { AiFillTwitterCircle } from "react-icons/ai";
 import { FaSquareInstagram } from "react-icons/fa6";
@@ -9,10 +9,15 @@ import "./../assets/styles/style.scss";
 import { Link } from "react-router-dom";
 
 const Header = () => {
+  const [scroll, setscroll] = useState()
+  window.addEventListener("scroll",()=>{
+    setscroll(scrollY)
+  })
+
   return (
     <>
       <header>
-        <div className="container">
+        <div  className="container">
           <ul className="icons">
             <li>
               <FaFacebook style={{ fontSize: "26px" }} />
@@ -38,10 +43,10 @@ const Header = () => {
             <li> shop@yourdomain.com</li>
           </ul>
         </div>
-        <nav>
-          <div className="conatiner">
+        <nav style={{position:scroll>10? "fixed":"static",top:"0"}}>
+          <div className="conatiner" >
             <div className="logo">
-              Selling <span>.</span>
+            Selling <span>.</span>
             </div>
             <ul>
               <Link to="/">
@@ -49,7 +54,7 @@ const Header = () => {
                 <li>Home</li>
               </Link>
               <Link to="/add">
-                {" "}
+          
                 <li>Add</li>
               </Link>
               <Link to="/basket">
