@@ -1,0 +1,316 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap");
+* {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+header {
+  background-color: #f8f9fa;
+  width: 100%;
+}
+
+header .container {
+  width: 60%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+}
+
+header .container ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 5px;
+}
+
+header .container ul li {
+  list-style: none;
+  font-family: "Mulish", sans-serif;
+}
+
+header nav {
+  width: 100%;
+  background-color: white !important;
+  z-index: 5;
+}
+
+header nav .conatiner {
+  width: 60%;
+  margin: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 15px;
+}
+
+header nav .conatiner .logo {
+  font-size: 40px;
+}
+
+header nav .conatiner .logo span {
+  color: #f16821;
+}
+
+header nav .conatiner ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 15px;
+}
+
+header nav .conatiner ul li {
+  list-style: none;
+  font-family: "Mulish", sans-serif;
+}
+
+.hero {
+  width: 100%;
+  height: 90vh;
+  background-image: url("./../images/hero_2.jpg");
+  background-attachment: fixed;
+}
+
+.hero .container {
+  margin: auto;
+  width: 60%;
+  height: 100%;
+  color: white;
+  font-family: "Mulish";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.hero .container h1 {
+  font-size: 80px;
+  margin-bottom: 10px;
+}
+
+.hero .container p {
+  font-size: 20px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.hero .container .buttons {
+  margin-top: 30px;
+}
+
+.hero .container .buttons .btn {
+  height: 60px;
+  padding: 15px 20px;
+  margin-right: 5px;
+  border: 1px solid white;
+  background-color: transparent;
+  color: white;
+  font-weight: 600;
+}
+
+.hero .container .buttons .btn1:hover {
+  background-color: white;
+  color: black;
+}
+
+.hero .container .buttons .btn2 {
+  background-color: white;
+  color: black;
+}
+
+.hero .container .buttons .btn2:hover {
+  background-color: transparent;
+  color: white;
+}
+
+.products {
+  width: 100%;
+}
+
+.products .container {
+  width: 60%;
+  margin: auto;
+  padding: 20px;
+}
+
+.products .container .products-intro {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-family: "Roboto";
+  margin-bottom: 40px;
+}
+
+.products .container .products-intro span {
+  color: #adb5bd;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.products .container .products-intro h1 {
+  font-size: 40px;
+  margin-bottom: 10px;
+}
+
+.products .container .products-intro p {
+  color: #808080;
+  font-size: 16px;
+  text-align: center;
+  font-weight: 300;
+}
+
+.products .container .buttons {
+  margin-top: 30px;
+  margin: auto;
+}
+
+.products .container .buttons .btn {
+  height: 30px;
+  padding: 5px 15px;
+  margin-right: 15px;
+  border: 1px solid black;
+  background-color: transparent;
+  color: black;
+  font-weight: 600;
+}
+
+.products .container .buttons .btn2:hover {
+  background-color: black;
+  color: white;
+}
+
+.products .container .buttons .btn1 {
+  background-color: white;
+  color: black;
+}
+
+.products .container .buttons .btn1:hover {
+  background-color: black;
+  color: white;
+}
+
+.products .container .card-content {
+  margin-top: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.products .container .card-content .name {
+  color: black;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.products .container .card-content .name:hover {
+  color: #f16821;
+}
+
+.products .container .card-content .rate-fav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 50px;
+  margin-bottom: 10px;
+}
+
+.products .container .card-content .description {
+  color: #808080;
+  font-size: 13px;
+  margin-bottom: 10px;
+}
+
+.add-section {
+  margin-bottom: 30px;
+  width: 100%;
+  min-height: 20vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.add-section h1 {
+  margin-bottom: 30px;
+}
+
+.table {
+  margin: auto;
+  width: 90%;
+}
+
+.basket .table {
+  width: 100%;
+}
+/*# sourceMappingURL=style.css.map */

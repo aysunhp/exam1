@@ -50,7 +50,7 @@ const Header = () => {
             </div>
             <ul>
               <Link to="/">
-                {" "}
+            
                 <li>Home</li>
               </Link>
               <Link to="/add">
@@ -65,12 +65,32 @@ const Header = () => {
                 {" "}
                 <li>Wishlist</li>
               </Link>
-              <li>Products</li>
-              <li>About Us</li>
-              <li>Special</li>
-              <li>Testimonials</li>
-              <li>Blog</li>
+              <Link to="/products">
+                {" "}
+                <li>Products</li>
+              </Link>
+              <Link to="/about">
+                {" "}
+                <li>About Us</li>
+              </Link>
+              <Link to="/special">
+                {" "}
+                <li>Special</li>
+              </Link>
+              <Link to="/testimonial">
+                {" "}
+                <li>Testimonials</li>
+              </Link>
+              <Link to="/blog">
+                {" "}
+                <li>Blog</li>
+              </Link>
+              <Link to="/contact">
               <li>Contact</li>
+              </Link>
+              
+              
+             
               
             </ul>
           </div>
