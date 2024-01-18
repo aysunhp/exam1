@@ -52,12 +52,6 @@ const Header = () => {
                 {" "}
                 <li>Add</li>
               </Link>
-              <li>Products</li>
-              <li>About Us</li>
-              <li>Special</li>
-              <li>Testimonials</li>
-              <li>Blog</li>
-              <li>Contact</li>
               <Link to="/basket">
                 {" "}
                 <li>Basket</li>
@@ -66,6 +60,13 @@ const Header = () => {
                 {" "}
                 <li>Wishlist</li>
               </Link>
+              <li>Products</li>
+              <li>About Us</li>
+              <li>Special</li>
+              <li>Testimonials</li>
+              <li>Blog</li>
+              <li>Contact</li>
+              
             </ul>
           </div>
         </nav>

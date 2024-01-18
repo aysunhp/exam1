@@ -9,6 +9,7 @@ import Blog from "../pages/Blog";
 import Contact from "../pages/Contact";
 import Basket from "../pages/Basket";
 import Wishlist from "../pages/Wishlist";
+import Detail from "../pages/Detail";
 
 const routes = [
   {
@@ -18,6 +19,10 @@ const routes = [
       {
         path: "/",
         element: <Home />,
+      },
+      {
+        path: "/:id",
+        element: <Detail />,
       },
       {
         path: "/add",

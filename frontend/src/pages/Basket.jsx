@@ -1,16 +1,15 @@
 import React, { useEffect } from "react";
-import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
+import Button from "@mui/material/CardMedia";
+import Table from '@mui/material/Table';
+import TableBody from '@mui/material/TableBody';
+import TableCell from '@mui/material/TableCell';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import Paper from '@mui/material/Paper';
 import { useDispatch, useSelector } from "react-redux";
 import {
   fetchData,
-  addBasket,
-  addWishlist,
   increaseBasket,
   decreaseBasket,
   deleteBasket,
@@ -30,86 +29,58 @@ const Basket = () => {
   console.log(basket);
   return (
     <>
-      <div className="products">
+      <div className="basket">
         <div className="container">
           <div className="products-intro">
             <h1>Basket</h1>
           </div>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={1}>
-              {basket &&
-                basket.map((item) => {
-                  return (
-                    <Grid item xs={12} sm={12} md={6} lg={4} key={item._id}>
-                      <Card
-                        sx={{ maxWidth: 325 }}
-                        style={{ border: "none", boxShadow: "none" }}
-                      >
-                        <CardMedia
-                          sx={{ height: 340 }}
-                          image={item.image}
-                          title="green iguana"
-                        />
-                        <CardContent>
-                          <div className="card-content">
-                            <div className="name">{item.name}</div>
-                            <div className="rate-fav">
-                              <div className="rate">
-                                <MdOutlineStarPurple500
-                                  style={{ fontSize: "17px", color: "#F89D13" }}
-                                />{" "}
-                                {item.rate}
-                              </div>
-                              <div className="fav">
-                                <FaHeart
-                                  style={{ fontSize: "15px", color: "red" }}
-                                  onClick={() => {
-                                    dispatch(addWishlist(item));
-                                  }}
-                                />
-
-                                {item.favourite}
-                              </div>
-                            </div>
-                            <div className="description">
-                              Quantity: {item.quantity}
-                            </div>
-                          </div>
-                        </CardContent>
-                        <CardActions>
-                          <div className="buttons">
-                            <button
-                              className="btn btn1"
-                              onClick={() => {
-                                dispatch(increaseBasket(item));
-                              }}
-                            >
-                              +
-                            </button>
-                            <button
-                              className="btn btn1"
-                              onClick={() => {
-                                dispatch(decreaseBasket(item));
-                              }}
-                            >
-                              -
-                            </button>
-                            <button
-                              className="btn btn2"
-                              onClick={() => {
-                                dispatch(deleteBasket(item));
-                              }}
-                            >
-                              Delete
-                            </button>
-                          </div>
-                        </CardActions>
-                      </Card>
-                    </Grid>
-                  );
-                })}
-            </Grid>
-          </Box>
+          <TableContainer component={Paper}>
+      <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        <TableHead>
+          <TableRow>
+            <TableCell>Dessert (100g serving)</TableCell>
+            <TableCell align="right">Name</TableCell>
+            <TableCell align="right">Rate</TableCell>
+            <TableCell align="right">Favourite</TableCell>
+            <TableCell align="right">Description</TableCell>
+            <TableCell align="right">Image</TableCell>
+            <TableCell align="right">Quantity</TableCell>
+            <TableCell align="right">Increase</TableCell>
+            <TableCell align="right">Decrease</TableCell>
+            <TableCell align="right">Delete</TableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {basket.map((row) => (
+            <TableRow
+              key={row.name}
+              sx={{ '&:last-child td, &:last-child th': { border: 0 } }}
+            >
+              <TableCell component="th" scope="row">
+                {row.name}
+              </TableCell>
+              <TableCell align="right">{row.name}</TableCell>
+              <TableCell align="right">{row.rate}</TableCell>
+              <TableCell align="right">{row.favourite}</TableCell>
+              <TableCell align="right">{row.description}</TableCell>
+              <TableCell align="right">{row.image}</TableCell>
+              <TableCell align="right">{row.quantity}</TableCell>
+              <TableCell align="right" onClick={()=>{
+                dispatch(increaseBasket(row))
+              }}><Button>Increase</Button></TableCell>
+              <TableCell align="right"><Button onClick={()=>{
+                dispatch(decreaseBasket(row))
+              }}>Decrease</Button></TableCell>
+              <TableCell align="right"><Button onClick={()=>{
+                dispatch(deleteBasket(row))
+              }}>Delete</Button></TableCell>
+            </TableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+  
+        
         </div>
       </div>
     </>

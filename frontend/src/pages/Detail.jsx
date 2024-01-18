@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React,{useEffect} from 'react'
 import Box from "@mui/material/Box";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
@@ -6,47 +6,39 @@ import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
 import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
+import { useParams } from 'react-router-dom'
+import { MdOutlineStarPurple500 } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
 import {
   fetchData,
   addBasket,
   addWishlist,
 } from "../redux/slice/productsSlice";
-import { MdOutlineStarPurple500 } from "react-icons/md";
-import { FaHeart } from "react-icons/fa";
 
-const Products = () => {
-  const dispatch = useDispatch();
-  const data = useSelector((state) => state.product.data);
+const Detail = () => {
+    const {id}=useParams()
+    const dispatch = useDispatch();
+    const data = useSelector((state) => state.product.data);
+  
+    useEffect(() => {
+      console.log("salam");
+      dispatch(fetchData());
+    }, [dispatch]);
+  
+const detailed=data.filter(item=>item._id==id)
 
-  useEffect(() => {
-    console.log("salam");
-    dispatch(fetchData());
-  }, [dispatch]);
-
-  console.log(data);
   return (
-    <>
-      <div className="products">
-        <div className="container">
-          <div className="products-intro">
-            <span>POPULAR PRODUCTS</span>
-            <h1>Our Products</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p>
-              Repudiandae nostrum natus excepturi fuga ullam accusantium vel ut
-              eveniet aut consequatur laboriosam ipsam.
-            </p>
-          </div>
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid container spacing={1}>
-              {data &&
-                data.map((item) => {
+   <>
+   <div className="detail">
+   <Box sx={{ flexGrow: 1 }}>
+            <div className="container" style={{marginTop:"50px",display:"flex",justifyContent:"center", alignItems:"center"}}>
+              {detailed &&
+                detailed.map((item) => {
                   return (
-                    <Grid item xs={12} sm={12} md={6} lg={4} key={item._id}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} key={item._id}>
                       <Card
-                        sx={{ maxWidth: 325 }}
+                        sx={{ maxWidth: 525 }}
                         style={{ border: "none", boxShadow: "none" }}
                       >
                         <CardMedia
@@ -90,19 +82,19 @@ const Products = () => {
                             >
                               CARD
                             </button>
-                          <Link to={"/"+item._id}>  <button className="btn btn2">VIEW</button></Link>
+                          
                           </div>
                         </CardActions>
                       </Card>
                     </Grid>
                   );
                 })}
-            </Grid>
+                </div>
+         
           </Box>
-        </div>
-      </div>
-    </>
-  );
-};
+   </div>
+   </>
+  )
+}
 
-export default Products;
+export default Detail
